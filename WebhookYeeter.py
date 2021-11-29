@@ -16,7 +16,7 @@ print(""" _  _  _       _     _                 _
 (_______|_____)_____)  \__)_____)_|          
                                              """)
 print('Special thanks to Din/Jhin scripter, for helping me with the code.')
-webhook = input("Webhook que ira ser deletada: ")
+webhook = input("Webhook to delete: ")
 
 def delete():
 	requests.delete(webhook)
