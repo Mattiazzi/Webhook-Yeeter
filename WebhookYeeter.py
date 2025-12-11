@@ -1,5 +1,23 @@
-import discord
 import requests
+import os
+
+#limpa terminal
+def clear_screen():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+         os.system('clear')
+        
+#Retorna se o status da URL eh igual a 200
+def webhook_exists(webhookUrl):
+    return requests.get(webhookUrl).status_code == 200
+
+#Deleta duh
+def delete():
+	requests.delete(webhookUrl)
+
+
+clear_screen()
 
 print(""" _  _  _       _     _                 _     
 (_)(_)(_)     | |   | |               | |    
@@ -15,11 +33,16 @@ print(""" _  _  _       _     _                 _
  _____| | ____| ____| | |_| ____| |          
 (_______|_____)_____)  \__)_____)_|          
                                              """)
-print('Special thanks to Din/Jhin scripter, for helping me with the code.')
-webhook = input("Webhook que ira ser deletada: ")
+print('Salve pro Din/Jhin scripter')
+print(' ')
 
-def delete():
-	requests.delete(webhook)
+webhookUrl = input("Insert the WebHook you want to delete: ")
 
-delete()
-
+#Checa se webhook existe, se sim, deleta
+if webhook_exists(webhookUrl):
+      print("WebHook Exists!.")
+      delete()
+      print("...")
+      print("Webhook deleted.")
+else:
+      print("WebHook doesn't exist.")
